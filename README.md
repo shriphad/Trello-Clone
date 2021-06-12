@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Live Demo
+For Live demo please visit https://shriphad.github.io/Trello-Clone/
+
 ## Available Scripts
 
 In the project directory, you can run:
