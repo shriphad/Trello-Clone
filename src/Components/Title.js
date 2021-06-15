@@ -3,19 +3,22 @@ import { CloseOutlined } from "@ant-design/icons";
 import AddCardForm from "./AddCard";
 import TrelloCards from "./Cards";
 import { Droppable, Draggable } from "react-beautiful-dnd";
+import IsMobile from "../Service/isMobile";
 
 export default function Title(props) {
   const { data, deleteTitle, deleteCard, addCard } = props;
-
+  const isMobile = IsMobile();
   const styleCards = {
     overflowY: "scroll",
     maxHeight: "400px",
     marginBottom: "20px",
   };
 
+  const grid = isMobile ? { column: 1 } : { column: 4 }
+
   return (
     <List
-      grid={{ column: 4 }}
+      grid={grid}
       dataSource={data}
       renderItem={(item) => (
         <Droppable droppableId={item.Title}>

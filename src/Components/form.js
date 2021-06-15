@@ -1,4 +1,5 @@
-import { Form, Input, Button, message } from "antd";
+import { Form, Input, Col, Button, message, Row } from "antd";
+import IsMobile from "../Service/isMobile";
 
 function titleExists(list, val) {
   return list.some(function (it) {
@@ -13,8 +14,12 @@ const validateMessages = {
 
 export default function Demo(props) {
   const { list, addTitle, isCard } = props;
+  const isMobile = IsMobile();
   const [form] = Form.useForm();
-  const styleTitleForm = { display: "flex", margin: "5px" };
+  const styleTitleForm = {
+    display: "flex",
+    flexDirection: "row"
+  };
   const formCardDescription = (
     <Form.Item
       name={["user", "Description"]}
@@ -28,6 +33,7 @@ export default function Demo(props) {
       <Input.TextArea allowClear={true} />
     </Form.Item>
   );
+  const inputStyle = isMobile ? { width: "100%", whiteSpace: "nowrap" } : { width: "100%" };
 
   //Preprocess the form data and adds the Title if it's unique
   const AddTitle = (values) => {
@@ -55,6 +61,7 @@ export default function Demo(props) {
   };
 
   return (
+
     <Form
       form={form}
       name="nest-messages"
@@ -62,23 +69,29 @@ export default function Demo(props) {
       validateMessages={validateMessages}
     >
       <div style={isCard ? null : styleTitleForm}>
-        <Form.Item
-          name={["user", "Name"]}
-          label="Title"
-          rules={[
-            {
-              required: true,
-            },
-          ]}
-        >
-          <Input allowClear={true} />
-        </Form.Item>
-        {isCard ? formCardDescription : null}
-        <Form.Item>
-          <Button type="primary" htmlType="submit">
-            {isCard ? "Add Card" : "Add Title"}
-          </Button>
-        </Form.Item>
+        <Row>
+          <Col span={12} >
+            <Form.Item
+              name={["user", "Name"]}
+              label="Title"
+              rules={[
+                {
+                  required: true,
+                },
+              ]}
+            >
+              <Input style={inputStyle} allowClear={true} />
+            </Form.Item>
+          </Col>
+          {isCard ? formCardDescription : null}
+          <Col span={12}>
+            <Form.Item>
+              <Button type="primary" htmlType="submit">
+                {isCard ? "Add Card" : "Add Title"}
+              </Button>
+            </Form.Item>
+          </Col>
+        </Row>
       </div>
     </Form>
   );

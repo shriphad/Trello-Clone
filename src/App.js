@@ -4,15 +4,21 @@ import Form from "./Components/form";
 import Title from "./Components/Title";
 import Navbar from "./Components/Navbar";
 import { message } from "antd";
+import "./App.css";
 import { setLocalStorage, getLocalStorage } from "./Service/storageService";
+import IsMobile from "./Service/isMobile";
 import { DragDropContext } from "react-beautiful-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { TouchBackend } from "react-dnd-touch-backend";
 
 const key = "TRELLO_REACT_APP_ID";
 
 export default function App() {
   const initialList = getLocalStorage(key);
-
   const [list, setList] = useState(initialList);
+  const isMobile = IsMobile();
+
+  const backend = isMobile ? TouchBackend : HTML5Backend;
 
   function getTitleIndex(Titles, item) {
     const val = item.Title ? item.Title : item;
@@ -149,7 +155,7 @@ export default function App() {
     <div className="App">
       <Navbar />
       <Form list={list} addTitle={addTitle} isCard={false} />
-      <DragDropContext onDragEnd={onDragEnd}>
+      <DragDropContext backend={backend} onDragEnd={onDragEnd}>
         <Title
           data={list}
           deleteTitle={deleteTitle}
