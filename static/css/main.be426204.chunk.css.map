@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/index.css","webpack://src/App.css"],"names":[],"mappings":"AAAA,KACE,sBACF,CCFA,KACE,WACF","file":"main.be426204.chunk.css","sourcesContent":["html {\r\n  scroll-behavior: smooth;\r\n}\r\n",".App {\r\n  margin: 10px;\r\n}\r\n"]}
