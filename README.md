@@ -3,7 +3,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Live Demo
+
 For Live demo please visit https://shriphad.github.io/Trello-Clone/
+
+<video src="drag-drop.mp4" autoplay loop width="800" height="800"> </video>
 
 ## Available Scripts
 
