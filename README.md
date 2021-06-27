@@ -6,7 +6,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 For Live demo please visit https://shriphad.github.io/Trello-Clone/
 
-<video src="drag-drop.mp4" autoplay loop width="800" height="800"> </video>
+
+
+<video autoplay src="https://user-images.githubusercontent.com/48883702/123549849-5cf4c000-d788-11eb-929e-f7c5f6fcd99f.mp4"  > </video>
+
+
 
 ## Available Scripts
 
